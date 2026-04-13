@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forever Aloe Shop | Soins Premium à l'Aloe Vera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep: #1a3d2b;
+      --green-mid: #2c6e49;
+      --green-light: #4a9e6e;
+      --green-pale: #c8e6c9;
+      --cream: #faf6f0;
+      --warm-white: #fffdf9;
+      --gold: #b8860b;
+      --gold-light: #e8c84a;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-light: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-dark); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 3px; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,253,249,0.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(44,110,73,0.12);
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+    .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--green-pale); }
+    .logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--green-deep); line-height: 1.2; }
+    .logo-text span { color: var(--gold); display: block; font-size: 0.65rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+    nav { display: flex; gap: 28px; list-style: none; }
+    nav a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--text-mid); transition: color 0.2s; letter-spacing: 0.02em; }
+    nav a:hover { color: var(--green-mid); }
+    .btn-cta-header {
+      background: var(--green-mid); color: white; padding: 10px 22px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      display: flex; align-items: center; gap: 8px; transition: all 0.3s; white-space: nowrap;
+    }
+    .btn-cta-header:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44,110,73,0.3); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e8f5e2 0%, #f5f2eb 45%, #dff0e6 100%);
+      display: flex; align-items: center;
+      padding: 72px 48px 0;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 72% 50%, rgba(44,110,73,0.07) 0%, transparent 70%);
+    }
+    .hero-bg-text {
+      position: absolute; right: -20px; top: 50%; transform: translateY(-50%) rotate(-8deg);
+      font-family: 'Playfair Display', serif; font-size: 22vw; font-weight: 900;
+      color: rgba(44,110,73,0.04); pointer-events: none; line-height: 1; white-space: nowrap;
+    }
+    .hero-content {
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      position: relative; z-index: 1; padding: 80px 0;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(44,110,73,0.1); color: var(--green-mid);
+      padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px;
+      border: 1px solid rgba(44,110,73,0.2);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 3.8vw, 3.6rem); line-height: 1.15;
+      color: var(--green-deep); margin-bottom: 22px; font-weight: 900;
+    }
+    .hero h1 em { font-style: italic; color: var(--green-light); }
+    .hero-sub { font-size: 1.02rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 38px; max-width: 460px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+    .btn-primary {
+      background: var(--green-mid); color: white; padding: 14px 30px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 0.93rem;
+      transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--green-deep); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(44,110,73,0.35); }
+    .btn-secondary {
+      border: 2px solid var(--green-mid); color: var(--green-mid); padding: 12px 28px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 0.93rem;
+      transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-secondary:hover { background: var(--green-mid); color: white; transform: translateY(-3px); }
+    .hero-stats { display: flex; gap: 28px; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--green-deep); }
+    .stat-label { font-size: 0.72rem; color: var(--text-light); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-visual { position: relative; height: 520px; }
+    .hero-img-main {
+      position: absolute; right: 0; top: 0; width: 88%; height: 100%;
+      border-radius: 32px 32px 100px 32px; object-fit: cover;
+      box-shadow: 0 40px 80px rgba(26,61,43,0.2);
+    }
+    .hero-img-float {
+      position: absolute; left: 0; bottom: 70px; width: 48%; height: 190px;
+      border-radius: 22px; object-fit: cover;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.14); border: 4px solid white;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero-card {
+      position: absolute; right: 14px; bottom: 30px;
+      background: white; border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+      display: flex; align-items: center; gap: 10px;
+      animation: float 5s ease-in-out infinite reverse;
+    }
+    .hero-card-icon { width: 38px; height: 38px; background: var(--green-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-mid); }
+    .hero-card strong { display: block; font-size: 0.84rem; font-weight: 600; }
+    .hero-card span { font-size: 0.7rem; color: var(--text-light); }
+
+    /* MARQUEE */
+    .marquee-strip { background: var(--green-deep); color: white; padding: 14px 0; overflow: hidden; }
+    .marquee-track { display: flex; animation: marquee 28s linear infinite; white-space: nowrap; }
+    .marquee-item {
+      flex-shrink: 0; padding: 0 28px; font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .marquee-item::before { content: '✦'; color: var(--gold-light); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTION UTILS */
+    .section-tag {
+      display: inline-block; background: rgba(44,110,73,0.1); color: var(--green-mid);
+      padding: 5px 14px; border-radius: 50px; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.8vw, 2.6rem); color: var(--green-deep); line-height: 1.2; font-weight: 700; }
+    .section-title em { font-style: italic; color: var(--green-light); }
+    .section-sub { font-size: 0.98rem; color: var(--text-mid); line-height: 1.7; max-width: 520px; margin-top: 10px; }
+
+    /* FEATURES */
+    .features-section { padding: 100px 48px; max-width: 1280px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 56px; align-items: center; }
+    .features-image-stack { position: relative; padding-bottom: 24px; padding-right: 24px; }
+    .feat-img-bg { width: 100%; height: 500px; border-radius: 40px; object-fit: cover; }
+    .feat-img-overlay {
+      position: absolute; bottom: 0; right: 0; width: 54%; height: 220px;
+      border-radius: 24px; object-fit: cover; border: 5px solid white;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.14);
+    }
+    .features-list { display: flex; flex-direction: column; gap: 20px; }
+    .feature-item {
+      display: flex; gap: 18px; background: white; padding: 22px; border-radius: 20px;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.05); transition: all 0.3s;
+      opacity: 0; transform: translateX(30px);
+    }
+    .feature-item.visible { opacity: 1; transform: translateX(0); }
+    .feature-item:hover { transform: translateX(8px); box-shadow: 0 8px 28px rgba(44,110,73,0.12); }
+    .feature-icon { width: 50px; height: 50px; flex-shrink: 0; background: linear-gradient(135deg, var(--green-pale), rgba(44,110,73,0.08)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
+    .feature-text strong { display: block; font-weight: 600; font-size: 0.97rem; margin-bottom: 4px; color: var(--green-deep); }
+    .feature-text p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* PRODUCTS */
+    .products-section { padding: 100px 48px; background: var(--cream); }
+    .products-inner { max-width: 1280px; margin: 0 auto; }
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+    .product-card {
+      background: white; border-radius: 26px; overflow: hidden;
+      transition: all 0.4s; position: relative; opacity: 0; transform: translateY(20px);
+    }
+    .product-card.visible { opacity: 1; transform: translateY(0); }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 28px 56px rgba(44,110,73,0.14); }
+    .product-img-wrap {
+      position: relative; background: linear-gradient(135deg, #e8f5e2, #f0ede5);
+      height: 230px; overflow: hidden;
+    }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 18px; transition: transform 0.5s; }
+    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+    .product-badge { position: absolute; top: 12px; left: 12px; background: var(--green-mid); color: white; padding: 4px 11px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-badge.gold { background: var(--gold); }
+    .product-badge.red { background: #e63946; }
+    .product-body { padding: 20px; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--green-deep); margin-bottom: 7px; }
+    .product-desc { font-size: 0.81rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 12px; }
+    .product-benefit { font-size: 0.78rem; font-weight: 600; color: var(--green-mid); margin-bottom: 16px; }
+    .btn-wa-prod {
+      width: 100%; background: #25d366; color: white; border: none;
+      padding: 12px; border-radius: 14px; font-weight: 700; font-size: 0.86rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.3s; text-decoration: none;
+    }
+    .btn-wa-prod:hover { background: #1da851; transform: scale(0.98); }
+
+    /* VIDEOS */
+    .video-section { padding: 100px 48px; max-width: 1280px; margin: 0 auto; }
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 52px; }
+    .video-card { background: var(--green-deep); border-radius: 30px; overflow: hidden; position: relative; }
+    .video-card video { width: 100%; display: block; max-height: 400px; object-fit: cover; }
+    .video-label {
+      position: absolute; bottom: 18px; left: 18px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(8px);
+      padding: 9px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+      color: var(--green-deep); display: flex; align-items: center; gap: 7px;
+    }
+    .video-label::before { content: '▶'; font-size: 0.65rem; color: var(--green-mid); }
+
+    /* TESTIMONIALS */
+    .testimonials-section { padding: 100px 48px; background: var(--green-deep); color: white; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; }
+    .testimonials-header .section-tag { background: rgba(255,255,255,0.14); color: var(--gold-light); }
+    .testimonials-header .section-title { color: white; }
+    .testimonials-header .section-sub { color: rgba(255,255,255,0.65); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
+    .testimonial-card {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px; padding: 26px; backdrop-filter: blur(10px);
+      transition: all 0.3s; opacity: 0; transform: translateY(20px);
+    }
+    .testimonial-card.visible { opacity: 1; transform: translateY(0); }
+    .testimonial-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .stars { color: var(--gold-light); font-size: 0.88rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.9rem; line-height: 1.65; color: rgba(255,255,255,0.88); margin-bottom: 18px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--green-deep); font-size: 0.88rem; }
+    .author-name { font-weight: 600; font-size: 0.86rem; }
+    .author-city { font-size: 0.72rem; color: rgba(255,255,255,0.45); }
+
+    /* WHY US */
+    .whyus-section { padding: 100px 48px; background: var(--cream); }
+    .whyus-inner { max-width: 1280px; margin: 0 auto; text-align: center; }
+    .whyus-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 48px; }
+    .whyus-card { background: white; border-radius: 22px; padding: 28px 16px; text-align: center; box-shadow: 0 4px 18px rgba(0,0,0,0.05); transition: all 0.3s; }
+    .whyus-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(44,110,73,0.12); }
+    .whyus-icon { font-size: 1.9rem; margin-bottom: 12px; display: block; }
+    .whyus-title { font-weight: 700; font-size: 0.92rem; color: var(--green-deep); margin-bottom: 5px; }
+    .whyus-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; }
+
+    /* FAQ */
+    .faq-section { padding: 100px 48px; max-width: 800px; margin: 0 auto; }
+    .faq-section .section-title { text-align: center; }
+    .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: white; border: 1px solid #eee; border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+    .faq-item:hover { box-shadow: 0 6px 22px rgba(44,110,73,0.09); border-color: var(--green-pale); }
+    .faq-q { padding: 18px 22px; font-weight: 600; font-size: 0.93rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: var(--green-deep); gap: 14px; user-select: none; }
+    .faq-q i { color: var(--green-mid); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-a { max-height: 0; overflow: hidden; padding: 0 22px; font-size: 0.86rem; color: var(--text-mid); line-height: 1.7; transition: all 0.35s; }
+    .faq-item.open .faq-a { max-height: 160px; padding: 0 22px 18px; }
+    .faq-item.open .faq-q i { transform: rotate(180deg); }
+    .faq-item.open { border-color: var(--green-light); }
+
+    /* FOOTER */
+    footer { background: var(--green-deep); color: white; padding: 60px 48px 30px; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .footer-tagline { font-size: 0.86rem; color: rgba(255,255,255,0.58); line-height: 1.7; margin-top: 14px; max-width: 300px; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 18px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 0.95rem; transition: all 0.3s; }
+    .social-btn:hover { background: var(--gold); transform: translateY(-3px); }
+    .footer-col h4 { font-weight: 700; margin-bottom: 16px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.86rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+    /* WA FLOAT */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 26px; z-index: 200;
+      width: 56px; height: 56px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.45rem; text-decoration: none;
+      box-shadow: 0 6px 22px rgba(37,211,102,0.45);
+      animation: wa-pulse 2.5s infinite; transition: transform 0.3s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 6px 22px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 6px 32px rgba(37,211,102,0.65), 0 0 0 9px rgba(37,211,102,0.1); }
+    }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: all 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero { padding: 72px 20px 0; }
+      .hero-content { grid-template-columns: 1fr; gap: 36px; padding: 56px 0; }
+      .hero-visual { height: 300px; }
+      .features-section, .video-section, .products-section, .testimonials-section, .whyus-section, .faq-section, footer { padding: 64px 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .whyus-grid { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header">
+  <a href="#" class="logo-wrap">
+    <img src="./images/logo.jpg" alt="Forever Aloe Shop" class="logo-img">
+    <div class="logo-text">Forever Aloe Shop<span>Soins Naturels Premium</span></div>
+  </a>
+  <nav>
+    <a href="#produits">Produits</a>
+    <a href="#bienfaits">Bienfaits</a>
+    <a href="#videos">Vidéos</a>
+    <a href="#avis">Avis</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a href="https://wa.me/212645283570?text=Bonjour%2C%20je%20veux%20commander" class="btn-cta-header" target="_blank">
+    <i class="fab fa-whatsapp"></i> Commander
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">ALOE</div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge"><i class="fas fa-fire"></i>&nbsp; Offre limitée – Stock épuisable</div>
+      <h1>La <em>nature</em> au service de votre beauté &amp; bien-être</h1>
+      <p class="hero-sub">Produits authentiques Forever Living, certifiés IASC. Livraison rapide partout au Maroc — paiement à la réception.</p>
+      <div class="hero-btns">
+        <a href="#produits" class="btn-primary"><i class="fas fa-shopping-bag"></i> Voir les produits</a>
+        <a href="https://wa.me/212645283570?text=Bonjour%2C%20je%20veux%20commander" class="btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> Commande rapide</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">5 000+</div><div class="stat-label">Clients satisfaits</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Authentique</div></div>
+        <div class="stat"><div class="stat-num">COD</div><div class="stat-label">Paiement livraison</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="./images/general.jpg" alt="Produits Forever Living" class="hero-img-main" onerror="this.src='https://placehold.co/600x520/e8f5e2/2c6e49?text=Forever+Living'">
+      <img src="./images/aloe.jpg" alt="Aloe Vera" class="hero-img-float" onerror="this.src='https://placehold.co/300x190/c8e6c9/2c6e49?text=Aloe'">
+      <div class="hero-card">
+        <div class="hero-card-icon"><i class="fas fa-truck"></i></div>
+        <div><strong>Livraison rapide</strong><span>2–4 jours · Cash on Delivery</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marquee-track"></div>
+</div>
+
+<!-- FEATURES / BIENFAITS -->
+<section class="features-section" id="bienfaits">
+  <div class="fade-up">
+    <div class="section-tag">Pourquoi nous choisir</div>
+    <h2 class="section-title">Des soins <em>vraiment</em> naturels,<br>une différence que vous sentez</h2>
+    <p class="section-sub">Chaque produit Forever Living contient de l'aloe vera stabilisé à froid, préservant 100 % de ses principes actifs.</p>
+  </div>
+  <div class="features-grid">
+    <div class="features-image-stack fade-up">
+      <img src="./images/al.jpg" alt="Aloe Vera Naturel" class="feat-img-bg" onerror="this.src='https://placehold.co/560x500/e8f5e2/2c6e49?text=Aloe+Vera'">
+      <img src="./images/81bc16145938fbe83be44e0b70fe25be.jpg" alt="Produit Forever" class="feat-img-overlay" onerror="this.src='https://placehold.co/300x220/d9ead3/2c6e49?text=Produit'">
+    </div>
+    <div class="features-list">
+      <div class="feature-item"><div class="feature-icon">🌿</div><div class="feature-text"><strong>Certifié IASC</strong><p>Le sceau international garantissant la plus haute qualité d'aloe vera brut et stabilisé.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">✅</div><div class="feature-text"><strong>Produits 100 % authentiques</strong><p>Directement importés de Forever Living Maroc, avec numéros de lot traçables.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">🚚</div><div class="feature-text"><strong>Livraison Cash on Delivery</strong><p>Vous payez uniquement à la réception — zéro risque, zéro avance.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">💬</div><div class="feature-text"><strong>Conseil personnalisé WhatsApp</strong><p>Notre équipe vous guide pour choisir les produits adaptés à vos besoins spécifiques.</p></div></div>
+      <div class="feature-item"><div class="feature-icon">🔄</div><div class="feature-text"><strong>Retour facile garanti</strong><p>Pas satisfait ? On gère le retour et le remboursement sans discussion.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="produits">
+  <div class="products-inner">
+    <div class="products-header fade-up">
+      <div>
+        <div class="section-tag">Nos best-sellers</div>
+        <h2 class="section-title">Les <em>essentiels</em> Forever Living</h2>
+      </div>
+      <p style="font-size:0.88rem;color:var(--text-mid);max-width:280px;text-align:right;">Formules naturelles à base d'aloe vera certifié IASC — paiement à la livraison.</p>
+    </div>
+    <div class="products-grid" id="product-list"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="video-section" id="videos">
+  <div class="fade-up" style="text-align:center;">
+    <div class="section-tag">Découvrir en vidéo</div>
+    <h2 class="section-title">Voyez la <em>différence</em> par vous-même</h2>
+    <p class="section-sub" style="margin:10px auto 0;">Démonstrations réelles de nos produits pour choisir en toute confiance.</p>
+  </div>
+  <div class="video-grid">
+    <div class="video-card fade-up">
+      <video controls poster="./images/aloe.jpg">
+        <source src="./videos/Pure-Inner-Aloe-Vera-pinterest-video-downloader.mp4" type="video/mp4">
+      </video>
+      <div class="video-label">Aloe Vera Pur – Extraction & Présentation</div>
+    </div>
+    <div class="video-card fade-up">
+      <video controls poster="./images/sunscreen.jpeg">
+        <source src="./videos/sunscrin.mp4" type="video/mp4">
+      </video>
+      <div class="video-label">Aloe Sunscreen SPF 30 – Démonstration</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="avis">
+  <div class="testimonials-inner">
+    <div class="testimonials-header fade-up">
+      <div class="section-tag">Avis clients</div>
+      <h2 class="section-title">Ce que disent <em>nos clients</em></h2>
+      <p class="section-sub">Plus de 5 000 personnes au Maroc et à l'international nous font confiance.</p>
+    </div>
+    <div class="testimonials-grid" id="testimonials-grid"></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus-section">
+  <div class="whyus-inner">
+    <div class="fade-up">
+      <div class="section-tag">Nos engagements</div>
+      <h2 class="section-title">La promesse <em>Forever Aloe Shop</em></h2>
+    </div>
+    <div class="whyus-grid">
+      <div class="whyus-card"><span class="whyus-icon">🌿</span><div class="whyus-title">Aloe Vera IASC</div><div class="whyus-desc">Label qualité premium reconnu mondialement</div></div>
+      <div class="whyus-card"><span class="whyus-icon">🚚</span><div class="whyus-title">Livraison rapide</div><div class="whyus-desc">2–4 jours au Maroc, 5–8 jours international</div></div>
+      <div class="whyus-card"><span class="whyus-icon">💳</span><div class="whyus-title">Paiement livraison</div><div class="whyus-desc">Cash on Delivery, zéro avance requise</div></div>
+      <div class="whyus-card"><span class="whyus-icon">🔒</span><div class="whyus-title">Commande sécurisée</div><div class="whyus-desc">Vos données et achats protégés à 100%</div></div>
+      <div class="whyus-card"><span class="whyus-icon">💬</span><div class="whyus-title">Support WhatsApp</div><div class="whyus-desc">Réponse en moins de 2h, 7j/7</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="fade-up" style="text-align:center;">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Questions <em>fréquentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">Comment passer commande ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Cliquez sur "Commander sur WhatsApp" sur le produit souhaité. Notre équipe traitera votre commande en moins de 2 heures.</div></div>
+    <div class="faq-item"><div class="faq-q">Quels sont les délais de livraison ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Livraison sous 2 à 4 jours ouvrés partout au Maroc. Pour l'international, comptez 5 à 8 jours. Vous recevez un SMS de suivi dès l'expédition.</div></div>
+    <div class="faq-item"><div class="faq-q">Le paiement à la livraison est-il disponible partout ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Oui, Cash on Delivery disponible dans toutes les villes du Maroc. Vous payez uniquement à la réception, en espèces au livreur.</div></div>
+    <div class="faq-item"><div class="faq-q">Comment savoir si les produits sont authentiques ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Tous nos produits sont sourcés auprès de Forever Living Maroc. Chaque produit possède un numéro de lot traçable et le label IASC.</div></div>
+    <div class="faq-item"><div class="faq-q">Que faire si je ne suis pas satisfait ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Contactez-nous sur WhatsApp dans les 7 jours suivant la réception. Nous organisons le retour et le remboursement intégral sans conditions.</div></div>
+    <div class="faq-item"><div class="faq-q">Ces produits conviennent-ils aux peaux sensibles ? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Oui, la plupart des produits Forever Living sont formulés pour les peaux sensibles. Consultez notre équipe WhatsApp pour des recommandations personnalisées.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="./images/logo.jpg" alt="Logo" class="logo-img">
+          <div class="logo-text" style="color:white;">Forever Aloe Shop<span>Soins Naturels Premium</span></div>
+        </div>
+        <p class="footer-tagline">Produits officiels Forever Living au Maroc. Livraison rapide, paiement à la livraison, qualité certifiée IASC.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/212645283570" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#produits">Nos produits</a></li>
+          <li><a href="#bienfaits">Bienfaits</a></li>
+          <li><a href="#videos">Vidéos</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/212645283570" target="_blank"><i class="fab fa-whatsapp" style="margin-right:5px;"></i>WhatsApp</a></li>
+          <li><a href="" target="_blank"><i class="fab fa-instagram" style="margin-right:5px;"></i>Instagram</a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-facebook" style="margin-right:5px;"></i>Facebook</a></li>
+        </ul>
+        <div style="margin-top:14px;font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;">
+          📍 Maroc — Livraison nationale<br>⏰ Réponse en &lt;2h, 7j/7
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Forever Aloe Shop — Tous droits réservés</p>
+      <p>Produits officiels Forever Living Maroc | Certifiés IASC</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/212645283570?text=Bonjour%2C%20j%27ai%20besoin%20d%27aide%20pour%20une%20commande" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+  // Marquee
+  const items = ['100% Authentique Forever Living','Livraison Cash on Delivery au Maroc','Certifié IASC – Qualité Premium','+5000 Clients Satisfaits','Réponse WhatsApp en -2h','Aloe Vera Stabilisé à Froid','Livraison Nationale Rapide','Retour Facile Garanti'];
+  const track = document.getElementById('marquee-track');
+  track.innerHTML = [...items,...items].map(t=>`<span class="marquee-item">${t}</span>`).join('');
+
+  // Products
+  const products = [
+    { name:"Aloe Heat Lotion", desc:"Lotion chauffante à l'aloe vera pour soulager les tensions musculaires et articulaires avant et après l'effort.", benefit:"💪 Soulage douleurs & tensions", img:"./images/lotion.jpeg", badge:"−15%", bc:"red" },
+    { name:"Forever Bright Toothgel", desc:"Gel dentaire à l'aloe vera, propolis et myrrhe. Blanchiment naturel, haleine fraîche sans agents abrasifs.", benefit:"🦷 Blanchit naturellement", img:"./images/bright.jpeg", badge:"Best-seller", bc:"gold" },
+    { name:"Aloe Propolis Crème", desc:"Crème hydratante riche à l'aloe vera et propolis — idéale pour les peaux sèches, sensibles ou irritées.", benefit:"✨ Régénère & apaise", img:"./images/image.png", badge:"⭐ Coup de cœur", bc:"" },
+    { name:"Aloe Sunscreen SPF 30", desc:"Protection solaire SPF 30 à base d'aloe vera. Non grasse, résistante à l'eau, hydratante toute la journée.", benefit:"☀️ Protection + Hydratation", img:"./images/sunscreen.jpeg", badge:"Été 2025", bc:"gold" }
+  ];
+  document.getElementById('product-list').innerHTML = products.map((p,i)=>`
+    <div class="product-card" style="transition-delay:${i*0.1}s">
+      <div class="product-img-wrap">
+        <span class="product-badge ${p.bc}">${p.badge}</span>
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='https://placehold.co/400x400/e8f5e2/2c6e49?text=${encodeURIComponent(p.name)}'">
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-benefit">${p.benefit}</div>
+        <a href="https://wa.me/212645283570?text=${encodeURIComponent('Bonjour, je souhaite commander : '+p.name+' (Forever Living). Paiement à la livraison. Merci !')}" class="btn-wa-prod" target="_blank">
+          <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+        </a>
+      </div>
+    </div>`).join('');
+
+  // Testimonials
+  const testimonials = [
+    { name:"Fatima Z.", city:"Casablanca", text:"La crème Propolis a transformé ma peau en 3 semaines. Plus aucune rougeur, teint unifié. Je recommande à toutes mes amies !" },
+    { name:"Mohamed A.", city:"Marrakech", text:"Le Toothgel est incroyable. Mes dents sont visiblement plus blanches et mon haleine est fraîche toute la journée. Produit authentique, livraison en 2 jours." },
+    { name:"Nadia K.", city:"Rabat", text:"Le sunscreen est léger, pas gras, et ma peau reste hydratée toute la journée. Un indispensable pour l'été !" },
+    { name:"Youssef M.", city:"Agadir", text:"Commande passée le soir, livrée en 48h. Produits bien emballés, identiques aux photos. La Heat Lotion fait des merveilles !" },
+    { name:"Amina B.", city:"Fès", text:"Avec le Cash on Delivery j'étais rassurée. Produits parfaits et équipe très réactive sur WhatsApp." },
+    { name:"Sara L.", city:"Tanger", text:"Troisième commande et toujours aussi satisfaite. Les produits Forever sont vraiment de qualité. Service client au top !" }
+  ];
+  document.getElementById('testimonials-grid').innerHTML = testimonials.map((t,i)=>`
+    <div class="testimonial-card" style="transition-delay:${i*0.1}s">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"${t.text}"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.name[0]}</div>
+        <div><div class="author-name">${t.name}</div><div class="author-city">📍 ${t.city}</div></div>
+      </div>
+    </div>`).join('');
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+      if(!open) item.classList.add('open');
+    });
+  });
+
+  // Intersection Observer
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up,.feature-item,.product-card,.testimonial-card').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
