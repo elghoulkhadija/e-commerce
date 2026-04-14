@@ -229,7 +229,6 @@
     .product-body { padding: 20px; }
     .product-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--green-deep); margin-bottom: 7px; }
     .product-desc { font-size: 0.81rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 12px; }
-    .product-price { font-size: 1.25rem; font-weight: 700; color: var(--green-deep); margin-bottom: 12px; }
     .product-benefit { font-size: 0.78rem; font-weight: 600; color: var(--green-mid); margin-bottom: 16px; }
     .btn-wa-prod {
       width: 100%; background: #25d366; color: white; border: none;
@@ -372,7 +371,7 @@
       <option value="fr" selected>🇫🇷 Français</option>
       <option value="ar">🇲🇦 العربية</option>
     </select>
-    <a href="https://wa.me/212645283570?text=Bonjour%2C%20je%20veux%20commander" class="btn-cta-header" id="btn-commander" target="_blank">
+    <a href="https://wa.me/212645283570?text=Bonjour%2C%20je%20souhaite%20passer%20une%20commande%20Forever%20Living.%20Paiement%20%C3%A0%20la%20livraison.%20Merci%20!" class="btn-cta-header" id="btn-commander" target="_blank">
       <i class="fab fa-whatsapp"></i> <span data-i18n="commander">Commander</span>
     </a>
   </div>
@@ -388,7 +387,7 @@
       <p class="hero-sub" data-i18n="hero_sub">Produits authentiques Forever Living, certifiés IASC. Livraison rapide partout au Maroc — paiement à la réception.</p>
       <div class="hero-btns">
         <a href="#produits" class="btn-primary"><i class="fas fa-shopping-bag"></i> <span data-i18n="hero_btn1">Voir les produits</span></a>
-        <a href="https://wa.me/212645283570?text=Bonjour%2C%20je%20veux%20commander" class="btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn2">Commande rapide</span></a>
+        <a href="https://wa.me/212645283570" class="btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn2">Commande rapide</span></a>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">5 000+</div><div class="stat-label" data-i18n="stat1">Clients satisfaits</div></div>
@@ -529,7 +528,7 @@
         <div class="footer-socials">
           <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
           <a href="#" class="social-btn"><i class="fab fa-facebook"></i></a>
-          <a href="https://wa.me/212600000000" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/212645283570" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
           <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
@@ -622,7 +621,7 @@
       faq6_q: "Ces produits conviennent-ils aux peaux sensibles ?", faq6_a: "Oui, la plupart des produits Forever Living sont formulés pour les peaux sensibles. Consultez notre équipe WhatsApp pour des recommandations personnalisées.",
       footer_tagline: "Produits officiels Forever Living au Maroc. Livraison rapide, paiement à la livraison, qualité certifiée IASC.",
       logo_sub: "Soins Naturels Premium",
-      wa_text: "Bonjour%2C%20je%20veux%20commander"
+      wa_text: "Bonjour%2C%20je%20souhaite%20passer%20une%20commande%20Forever%20Living.%20Paiement%20%C3%A0%20la%20livraison.%20Merci%20!"
     },
     ar: {
       commander: "اطلب الآن",
@@ -668,23 +667,23 @@
       faq6_q: "هل هذه المنتجات مناسبة للبشرة الحساسة؟", faq6_a: "نعم، معظم منتجات فوريفر ليفينج مصممة للبشرة الحساسة. تواصل مع فريقنا عبر واتساب للحصول على توصيات مخصصة.",
       footer_tagline: "منتجات فوريفر ليفينج الرسمية بالمغرب. توصيل سريع، دفع عند الاستلام، جودة معتمدة IASC.",
       logo_sub: "عناية طبيعية فاخرة",
-      wa_text: "مرحباً%2C%20أريد%20الطلب"
+      wa_text: "مرحباً%2C%20أريد%20تقديم%20طلب%20Forever%20Living.%20الدفع%20عند%20الاستلام.%20شكراً!"
     }
   };
 
   // Products data bilingual
   const productsData = {
     fr: [
-      { name:"Aloe Heat Lotion", desc:"Lotion chauffante à l'aloe vera pour soulager les tensions musculaires et articulaires avant et après l'effort.", prix:"233 DH", benefit:"💪 Soulage douleurs & tensions", img:"./images/lotion.jpeg", badge:"−15%", bc:"red" },
-      { name:"Forever Bright Toothgel", desc:"Gel dentaire à l'aloe vera, propolis et myrrhe. Blanchiment naturel, haleine fraîche sans agents abrasifs.", prix:"120 DH", benefit:"🦷 Blanchit naturellement", img:"./images/bright.jpeg", badge:"Best-seller", bc:"gold" },
-      { name:"Aloe Propolis Crème", desc:"Crème hydratante riche à l'aloe vera et propolis — idéale pour les peaux sèches, sensibles ou irritées.", prix:"310 DH", benefit:"✨ Régénère & apaise", img:"./images/image.png", badge:"⭐ Coup de cœur", bc:"" },
-      { name:"Aloe Sunscreen SPF 30", desc:"Protection solaire SPF 30 à base d'aloe vera. Non grasse, résistante à l'eau, hydratante toute la journée.", prix:"263 DH", benefit:"☀️ Protection + Hydratation", img:"./images/sunscreen.jpeg", badge:"Été 2025", bc:"gold" }
+      { name:"Aloe Heat Lotion", desc:"Lotion chauffante à l'aloe vera pour soulager les tensions musculaires et articulaires avant et après l'effort.", benefit:"💪 Soulage douleurs & tensions", img:"./images/lotion.jpeg", badge:"−15%", bc:"red" },
+      { name:"Forever Bright Toothgel", desc:"Gel dentaire à l'aloe vera, propolis et myrrhe. Blanchiment naturel, haleine fraîche sans agents abrasifs.", benefit:"🦷 Blanchit naturellement", img:"./images/bright.jpeg", badge:"Best-seller", bc:"gold" },
+      { name:"Aloe Propolis Crème", desc:"Crème hydratante riche à l'aloe vera et propolis — idéale pour les peaux sèches, sensibles ou irritées.", benefit:"✨ Régénère & apaise", img:"./images/image.png", badge:"⭐ Coup de cœur", bc:"" },
+      { name:"Aloe Sunscreen SPF 30", desc:"Protection solaire SPF 30 à base d'aloe vera. Non grasse, résistante à l'eau, hydratante toute la journée.", benefit:"☀️ Protection + Hydratation", img:"./images/sunscreen.jpeg", badge:"Été 2025", bc:"gold" }
     ],
     ar: [
-      { name:"Aloe Heat Lotion", desc:"كريم الإيلوفيرا المدفئ لتخفيف توترات العضلات والمفاصل قبل وبعد التمرين.", prix:"233 DH", benefit:"💪 يخفف الألم والتوترات", img:"./images/lotion.jpeg", badge:"−15%", bc:"red" },
-      { name:"Forever Bright Toothgel", desc:"جل أسنان بالإيلوفيرا والبروبوليس والمر. تبييض طبيعي ونفس منعش بدون مواد كاشطة.", prix:"120 DH", benefit:"🦷 يبيّض بشكل طبيعي", img:"./images/bright.jpeg", badge:"الأكثر مبيعاً", bc:"gold" },
-      { name:"Aloe Propolis Crème", desc:"كريم مرطب غني بالإيلوفيرا والبروبوليس — مثالي للبشرة الجافة والحساسة والمتهيجة.", prix:"310 DH", benefit:"✨ يجدد ويهدئ البشرة", img:"./images/image.png", badge:"⭐ الأفضل", bc:"" },
-      { name:"Aloe Sunscreen SPF 30", desc:"واقي شمس SPF 30 بالإيلوفيرا. خفيف، مقاوم للماء، يرطب طوال اليوم.", prix:"263 DH", benefit:"☀️ حماية + ترطيب", img:"./images/sunscreen.jpeg", badge:"صيف 2025", bc:"gold" }
+      { name:"Aloe Heat Lotion", desc:"كريم الإيلوفيرا المدفئ لتخفيف توترات العضلات والمفاصل قبل وبعد التمرين.", benefit:"💪 يخفف الألم والتوترات", img:"./images/lotion.jpeg", badge:"−15%", bc:"red" },
+      { name:"Forever Bright Toothgel", desc:"جل أسنان بالإيلوفيرا والبروبوليس والمر. تبييض طبيعي ونفس منعش بدون مواد كاشطة.", benefit:"🦷 يبيّض بشكل طبيعي", img:"./images/bright.jpeg", badge:"الأكثر مبيعاً", bc:"gold" },
+      { name:"Aloe Propolis Crème", desc:"كريم مرطب غني بالإيلوفيرا والبروبوليس — مثالي للبشرة الجافة والحساسة والمتهيجة.", benefit:"✨ يجدد ويهدئ البشرة", img:"./images/image.png", badge:"⭐ الأفضل", bc:"" },
+      { name:"Aloe Sunscreen SPF 30", desc:"واقي شمس SPF 30 بالإيلوفيرا. خفيف، مقاوم للماء، يرطب طوال اليوم.", benefit:"☀️ حماية + ترطيب", img:"./images/sunscreen.jpeg", badge:"صيف 2025", bc:"gold" }
     ]
   };
 
@@ -725,7 +724,6 @@
         <div class="product-body">
           <div class="product-name">${p.name}</div>
           <div class="product-desc">${p.desc}</div>
-          <div class="product-price">${p.prix}</div>
           <div class="product-benefit">${p.benefit}</div>
           <a href="https://wa.me/212645283570?text=${waMsg(p.name)}" class="btn-wa-prod" target="_blank">
             <i class="fab fa-whatsapp"></i> ${btnTxt}
